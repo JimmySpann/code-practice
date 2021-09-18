@@ -252,3 +252,21 @@ const data = [
         "dependencies": []
     }
 ];
+
+function formatData(data) //Pushes dependencies to the end of the data array
+{
+    const formattedData = {}
+    for(let item of data)
+    {
+        for(let i = 0; i < item.dependencies.length; i++)
+        {
+            data.push(item.dependencies[i]);
+            item.dependencies[i] = item.dependencies[i].id;
+        }
+        formattedData[item.id] = item;
+    }
+    return formattedData;
+}
+
+newData = formatData(data)
+console.log(newData);
