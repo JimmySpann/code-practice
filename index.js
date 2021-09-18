@@ -268,5 +268,44 @@ function formatData(data) //Pushes dependencies to the end of the data array
     return formattedData;
 }
 
+function formatToHTML(data)
+{
+    function addTabs(amount)
+    {
+        let str = ""
+        for(let i = 0; i < amount; i++)
+        {
+            str += "&emsp; "
+        }
+        return str
+    }
+    function checkFor(strChck, conditionsArr) {
+        for(let condition of conditionsArr)
+        {
+            if(strChck === condition) 
+            {
+                console.log(strChck, condition)
+                return true
+            }
+        }
+    }
+    let dataAsStr = JSON.stringify(data);
+    let newStr = "";
+    let tabCount = 0;
+    for(let i = 0; i < dataAsStr.length; i++)
+    {
+        newStr += dataAsStr[i]
+        if(dataAsStr[i] === "{" || dataAsStr[i] === "[") tabCount++;
+        if(dataAsStr[i] === "}" || dataAsStr[i] === "]") tabCount--;
+        if(checkFor(dataAsStr[i], ["{",",","["])) {
+            newStr += "<br>" + addTabs(tabCount);
+        }
+        if(checkFor(dataAsStr[i+1], ["}","]"])) {
+            newStr += "<br>" + addTabs(tabCount - 1);
+        }
+    }
+    return newStr;
+}
+
 newData = formatData(data)
-console.log(newData);
+document.body.innerHTML = formatToHTML(newData);
