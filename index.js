@@ -269,13 +269,10 @@ function formatData(data)
         for(let item of array)
         {
             if(item.subordinates) RecursiveAdd2Obj(item.subordinates, formattedObject)
-             const { subordinates, ...shallowItem } = { ...item }; //removing subordinates from copy makes shallow cloning work
-             formattedObject[item.id] = shallowItem;
-             formattedObject[item.id].subordinates = [];
+             formattedObject[item.id] = { ...item, subordinates: [] }; //Replaces subordinates ref with fresh array
             // Following code used to change children from objects to ids
             if(item.subordinates)
             {
-                // formattedObject[item.id]["subo = []
                 for(let i = 0; i < item.subordinates.length; i++)
                 {
                     formattedObject[item.id].subordinates.push(item.subordinates[i].id)
