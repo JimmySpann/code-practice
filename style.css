@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.rawDataDiv {
+    margin: 15px;
+    padding: 10px;
+    overflow: auto;
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    border: 1px solid black;
+}
