@@ -254,7 +254,7 @@ const data = [
 ];
 
 /**
- * Used to convert an object tree into a standard object. Sets the children at base with parents leaving its id in the place of the object.
+ * Used to convert an object tree into a standard object using a recursive algorithm
  *
  * @param {Array<Object>}   data Must be an array of objects.
  *
@@ -263,20 +263,28 @@ const data = [
 function formatData(data)
 {
     const formattedData = {}
-    for(let item of data)
-    {
-        for(let i = 0; i < item.dependencies.length; i++)
+    function RecursiveAdd2Obj(array, formattedObject) {
+        for(let item of array)
         {
-            data.push(item.dependencies[i]);
-            item.dependencies[i] = item.dependencies[i].id;
+            if(item.dependencies) RecursiveAdd2Obj(item.dependencies, formattedObject)
+            formattedObject[item.id] = item;
+
+            // Following code used to change children from objects to ids
+            if(formattedObject[item.id].dependencies)
+            {
+                for(let i = 0; i < formattedObject[item.id].dependencies.length; i++)
+                {
+                    formattedObject[item.id].dependencies[i] = formattedObject[item.id].dependencies[i].id
+                }
+            }
         }
-        formattedData[item.id] = item;
     }
+    RecursiveAdd2Obj(data, formattedData)
     return formattedData;
 }
 
 /**
- * Used to convert an object containing nested objects into a viewable HTML form
+ * Used to convert an object or array into a viewable HTML form
  *
  * @param {Object}   data Must an object containing nested objects.
  *
@@ -321,5 +329,5 @@ function formatToHTML(data)
     return newStr;
 }
 
-newData = formatData(data)
+newData = formatData(data);
 document.body.innerHTML = formatToHTML(newData);
