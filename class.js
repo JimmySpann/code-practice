@@ -4,7 +4,7 @@ class HTML {
     *
     * @param {String}   type Type of element in string format.
     *
-    * @param {Object}   attributes Object containing any attributes. Ex: { class: "my-class", id="123"}
+    * @param {Object}   attributes Object containing any attributes. Ex: { class: "my-class", id="123"} Will take textContent and innerHTML
     * 
     * @return {HTMLElement} Returns created HTMLElement
     */
@@ -12,7 +12,15 @@ class HTML {
         const newElement = document.createElement(type)
         for(const key in attributes)
         {
-            newElement.setAttribute(key, attributes[key]);
+            if(key === "textContent") {
+                newElement.textContent = attributes[key]
+            }
+            else if(key === "innerHTML") {
+                newElement.innerHTML = attributes[key]
+            }
+            else {
+                newElement.setAttribute(key, attributes[key]);
+            }
         }
         return newElement
     }
