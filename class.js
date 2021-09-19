@@ -24,6 +24,20 @@ class HTML {
         }
         return newElement
     }
+
+    static createSimilarElements(type, amount, similarAttributes, differentAttributes = {}) {
+        const elements = [];
+        for(let i = 0; i < amount; i++)
+        {
+            const combinedObjects = {}
+            elements.push(this.createElement(type, Object.assign(
+                combinedObjects,
+                similarAttributes, 
+                differentAttributes[i]
+                )))
+        }
+        return elements;
+    }
 }
 
 export default HTML

@@ -334,17 +334,17 @@ function formatToHTML(data)
 const newData = formatData(data);
 
 
-const dataElement = HTML.createElement("div", { 
-    class: "rawDataDiv",
-    innerHTML: "<h2>Starting Data</h2>" + formatToHTML(data)
-})
-const dataElement2 = HTML.createElement("div", { 
-    class: "rawDataDiv",
-    innerHTML: "<h2>Converted Data</h2>" + formatToHTML(newData)
-})
+const [dataDivElm, newDataDivElm] = HTML.createSimilarElements(
+    "div", 2,
+    { class: "rawDataDiv" },
+    {
+        0: { innerHTML: "<h2>Starting Data</h2>" + formatToHTML(data) },
+        1: { innerHTML: "<h2>Converted Data</h2>" + formatToHTML(newData) }
+    }
+)
 
-document.body.appendChild(dataElement);
-document.body.appendChild(dataElement2);
+document.body.appendChild(dataDivElm);
+document.body.appendChild(newDataDivElm);
 
 console.log("Starting Data", data);
 console.log("Converted Data", newData);
