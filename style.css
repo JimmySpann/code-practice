@@ -6,6 +6,10 @@ body {
     justify-content: space-around;
 }
 
+h2 {
+    text-align: center;
+}
+
 .rawDataDiv {
     margin: 15px;
     padding: 10px;
