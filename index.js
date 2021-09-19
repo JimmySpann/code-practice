@@ -331,3 +331,6 @@ function formatToHTML(data)
 
 newData = formatData(data);
 document.body.innerHTML = formatToHTML(newData);
+
+console.log("Starting Data", data);
+console.log("Converted Data", newData);
