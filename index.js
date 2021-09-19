@@ -5,14 +5,14 @@ const data = [
         "lastname": "Alva",
         "city": "Oranjestad",
         "email": "Letizia.Alva@gmail.com",
-        "dependencies": [
+        "subordinates": [
             {
             "id": 9479659711,
             "firstname": "Jaclyn",
             "lastname": "Thar",
             "city": "Iloilo City",
             "email": "Jaclyn.Thar@gmail.com",
-            "dependencies": []
+            "subordinates": []
             },
             {
                 "id": 7124552279,
@@ -20,7 +20,7 @@ const data = [
                 "lastname": "Erskine",
                 "city": "Jakarta",
                 "email": "Agathe.Erskine@gmail.com",
-                "dependencies": []
+                "subordinates": []
             }
         ]
     },
@@ -30,14 +30,14 @@ const data = [
         "lastname": "Suanne",
         "city": "Guadalajara",
         "email": "Cristabel.Suanne@gmail.com",
-        "dependencies": [
+        "subordinates": [
             {
                 "id": 9386277520,
                 "firstname": "Almeta",
                 "lastname": "Arne",
                 "city": "Abuja",
                 "email": "Almeta.Arne@gmail.com",
-                "dependencies": []
+                "subordinates": []
             },
             {
                 "id": 3054745669,
@@ -45,20 +45,20 @@ const data = [
                 "lastname": "Moseley",
                 "city": "Antwerp",
                 "email": "Aryn.Moseley@gmail.com",
-                "dependencies": [{
+                "subordinates": [{
                     "id": 8576311021,
                     "firstname": "Justinn",
                     "lastname": "Corabella",
                     "city": "Auckland",
                     "email": "Justinn.Corabella@gmail.com",
-                    "dependencies": [
+                    "subordinates": [
                         {
                             "id": 1296560725,
                             "firstname": "Lexine",
                             "lastname": "Junie",
                             "city": "Johor Bahru",
                             "email": "Lexine.Junie@gmail.com",
-                            "dependencies": []
+                            "subordinates": []
                         },
                     ]
                 },]
@@ -71,7 +71,7 @@ const data = [
         "lastname": "Burch",
         "city": "Cologne",
         "email": "Cassandra.Burch@gmail.com",
-        "dependencies": []
+        "subordinates": []
     },
     {
         "id": 9780067885,
@@ -79,21 +79,21 @@ const data = [
         "lastname": "Corrine",
         "city": "Macapá",
         "email": "Gale.Corrine@gmail.com",
-        "dependencies": [
+        "subordinates": [
             {
             "id": 8770061600,
             "firstname": "Nanete",
             "lastname": "Dituri",
             "city": "Abidjan",
             "email": "Nanete.Dituri@gmail.com",
-            "dependencies": [
+            "subordinates": [
                 {
                     "id": 9884622740,
                     "firstname": "Jaclyn",
                     "lastname": "Lesley",
                     "city": "Philadelphia",
                     "email": "Jaclyn.Lesley@gmail.com",
-                    "dependencies": []
+                    "subordinates": []
                 },
             ]
         },
@@ -105,35 +105,35 @@ const data = [
         "lastname": "Salvidor",
         "city": "Fort-de-France",
         "email": "Steffane.Salvidor@gmail.com",
-        "dependencies": [
+        "subordinates": [
             {
                 "id": 2914280722,
                 "firstname": "Willetta",
                 "lastname": "Yate",
                 "city": "Nicosia",
                 "email": "Willetta.Yate@gmail.com",
-                "dependencies": [
+                "subordinates": [
                     {
                         "id": 98046676,
                         "firstname": "Jeanna",
                         "lastname": "Gaynor",
                         "city": "Valparaíso",
                         "email": "Jeanna.Gaynor@gmail.com",
-                        "dependencies": [
+                        "subordinates": [
                             {
                                 "id": 7316686264,
                                 "firstname": "Korrie",
                                 "lastname": "Han",
                                 "city": "Banda Aceh",
                                 "email": "Korrie.Han@gmail.com",
-                                "dependencies": [
+                                "subordinates": [
                                     {
                                         "id": 9333308746,
                                         "firstname": "Vere",
                                         "lastname": "Lewes",
                                         "city": "Dubai",
                                         "email": "Vere.Lewes@gmail.com",
-                                        "dependencies": []
+                                        "subordinates": []
                                     },
                                 ]
                             },
@@ -149,14 +149,14 @@ const data = [
         "lastname": "Crudden",
         "city": "Vienna",
         "email": "Keelia.Crudden@gmail.com",
-        "dependencies": [
+        "subordinates": [
             {
                 "id": 4140525236,
                 "firstname": "Deedee",
                 "lastname": "Narton",
                 "city": "Madrid",
                 "email": "Deedee.Narton@gmail.com",
-                "dependencies": []
+                "subordinates": []
             },
             {
                 "id": 350903143,
@@ -164,7 +164,7 @@ const data = [
                 "lastname": "Raffo",
                 "city": "Chiang Mai",
                 "email": "Elvira.Raffo@gmail.com",
-                "dependencies": []
+                "subordinates": []
             },
             {
                 "id": 3952412370,
@@ -172,7 +172,7 @@ const data = [
                 "lastname": "Kenwood",
                 "city": "Srinagar",
                 "email": "Aili.Kenwood@gmail.com",
-                "dependencies": []
+                "subordinates": []
             },
             {
                 "id": 3654858687,
@@ -180,7 +180,7 @@ const data = [
                 "lastname": "Burnside",
                 "city": "Graz",
                 "email": "Flory.Burnside@gmail.com",
-                "dependencies": []
+                "subordinates": []
             },
         ]
     },
@@ -190,21 +190,21 @@ const data = [
         "lastname": "Gaynor",
         "city": "Bucharest",
         "email": "Chandra.Gaynor@gmail.com",
-        "dependencies": [
+        "subordinates": [
             {
                 "id": 3472358293,
                 "firstname": "Jessamyn",
                 "lastname": "Uird",
                 "city": "Gaza",
                 "email": "Jessamyn.Uird@gmail.com",
-                "dependencies": [
+                "subordinates": [
                     {
                         "id": 6165251503,
                         "firstname": "Leanna",
                         "lastname": "Douglass",
                         "city": "Kraków",
                         "email": "Leanna.Douglass@gmail.com",
-                        "dependencies": []
+                        "subordinates": []
                     },
                 ]
             },
@@ -214,7 +214,7 @@ const data = [
                 "lastname": "Weinreb",
                 "city": "Denpasar",
                 "email": "Anica.Weinreb@gmail.com",
-                "dependencies": []
+                "subordinates": []
             },
         ]
     },    
@@ -224,14 +224,14 @@ const data = [
         "lastname": "Erminia",
         "city": "Saipan",
         "email": "Nelle.Erminia@gmail.com",
-        "dependencies": [
+        "subordinates": [
             {
                 "id": 4711591350,
                 "firstname": "Judy",
                 "lastname": "Janene",
                 "city": "Tashkent",
                 "email": "Judy.Janene@gmail.com",
-                "dependencies": []
+                "subordinates": []
             },
             {
                 "id": 6439533613,
@@ -239,7 +239,7 @@ const data = [
                 "lastname": "Lewes",
                 "city": "Samara",
                 "email": "Damaris.Lewes@gmail.com",
-                "dependencies": []
+                "subordinates": []
             },
         ]
     }, 
@@ -249,7 +249,7 @@ const data = [
         "lastname": "Sidonius",
         "city": "Tashkent",
         "email": "Nonnah.Sidonius@gmail.com",
-        "dependencies": []
+        "subordinates": []
     }
 ];
 
@@ -266,15 +266,15 @@ function formatData(data)
     function RecursiveAdd2Obj(array, formattedObject) {
         for(let item of array)
         {
-            if(item.dependencies) RecursiveAdd2Obj(item.dependencies, formattedObject)
+            if(item.subordinates) RecursiveAdd2Obj(item.subordinates, formattedObject)
             formattedObject[item.id] = item;
 
             // Following code used to change children from objects to ids
-            if(formattedObject[item.id].dependencies)
+            if(formattedObject[item.id].subordinates)
             {
-                for(let i = 0; i < formattedObject[item.id].dependencies.length; i++)
+                for(let i = 0; i < formattedObject[item.id].subordinates.length; i++)
                 {
-                    formattedObject[item.id].dependencies[i] = formattedObject[item.id].dependencies[i].id
+                    formattedObject[item.id].subordinates[i] = formattedObject[item.id].subordinates[i].id
                 }
             }
         }
