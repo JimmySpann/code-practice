@@ -253,7 +253,14 @@ const data = [
     }
 ];
 
-function formatData(data) //Pushes dependencies to the end of the data array
+/**
+ * Used to convert an object tree into a standard object. Sets the children at base with parents leaving its id in the place of the object.
+ *
+ * @param {Array<Object>}   data Must be an array of objects.
+ *
+ * @return {Object} Returns nested object of each array item with the id as its key.
+ */
+function formatData(data)
 {
     const formattedData = {}
     for(let item of data)
@@ -268,6 +275,13 @@ function formatData(data) //Pushes dependencies to the end of the data array
     return formattedData;
 }
 
+/**
+ * Used to convert an object containing nested objects into a viewable HTML form
+ *
+ * @param {Object}   data Must an object containing nested objects.
+ *
+ * @return {String} Returns a string fit for innerHTML
+ */
 function formatToHTML(data)
 {
     function addTabs(amount)
@@ -282,12 +296,9 @@ function formatToHTML(data)
     function checkFor(strChck, conditionsArr) {
         for(let condition of conditionsArr)
         {
-            if(strChck === condition) 
-            {
-                console.log(strChck, condition)
-                return true
-            }
+            if(strChck === condition) return true
         }
+        return false
     }
     let dataAsStr = JSON.stringify(data);
     let newStr = "";
@@ -297,10 +308,13 @@ function formatToHTML(data)
         newStr += dataAsStr[i]
         if(dataAsStr[i] === "{" || dataAsStr[i] === "[") tabCount++;
         if(dataAsStr[i] === "}" || dataAsStr[i] === "]") tabCount--;
-        if(checkFor(dataAsStr[i], ["{",",","["])) {
+        if(dataAsStr[i] === "," && dataAsStr[i-1] === "}") {
+            newStr += "<br>"
+        }
+        if(checkFor(dataAsStr[i], [ "{", ",", "[" ])) {
             newStr += "<br>" + addTabs(tabCount);
         }
-        if(checkFor(dataAsStr[i+1], ["}","]"])) {
+        if(checkFor(dataAsStr[i+1], [ "}" , "]" ])) {
             newStr += "<br>" + addTabs(tabCount - 1);
         }
     }
