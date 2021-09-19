@@ -1,3 +1,5 @@
+import HTML from "./class.js"
+
 const data = [ 
     {
         "id": 128765120,
@@ -329,8 +331,20 @@ function formatToHTML(data)
     return newStr;
 }
 
-newData = formatData(data);
-document.body.innerHTML = formatToHTML(newData);
+const newData = formatData(data);
+
+
+const dataElement = HTML.createElement("div", { 
+    class: "rawDataDiv",
+    innerHTML: "<h2>Starting Data</h2>" + formatToHTML(data)
+})
+const dataElement2 = HTML.createElement("div", { 
+    class: "rawDataDiv",
+    innerHTML: "<h2>Converted Data</h2>" + formatToHTML(newData)
+})
+
+document.body.appendChild(dataElement);
+document.body.appendChild(dataElement2);
 
 console.log("Starting Data", data);
 console.log("Converted Data", newData);
