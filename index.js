@@ -1,5 +1,3 @@
-import HTML from "./class.js"
-
 const data = [ 
     {
         "id": 128765120,
