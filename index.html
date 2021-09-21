@@ -8,18 +8,27 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div class="rawDataDiv">
-      <h2>Starting Data</h2>
-      <pre><code id="starting-data">
-        
-      </code></pre>
+    <div class="input-container">
+      <div class="textarea-container">
+        <label>Input Data:</label>
+        <textarea id="data-input" style="display: block"></textarea>
+      </div>
+      <div class="button-container">
+        <button class="input-button">Use preset data</button>
+        <button class="input-button">Submit</button>
+      </div>
     </div>
 
-    <div class="rawDataDiv">
-      <h2>Converted Data</h2>
-      <pre><code id="converted-data">
-        
-      </code></pre>
+    <div class="solution-container">
+      <div class="rawDataDiv">
+        <h2>Starting Data</h2>
+        <pre><code id="starting-data"></code></pre>
+      </div>
+  
+      <div class="rawDataDiv">
+        <h2>Converted Data</h2>
+        <pre><code id="converted-data"></code></pre>
+      </div>
     </div>
 	  <script type="module" src="index.js"></script>
   </body>
