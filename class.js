@@ -10,18 +10,17 @@ class HTML {
     */
     static createElement(type, attributes) {
         const newElement = document.createElement(type)
-        for(const key in attributes)
-        {
+        Object.entries(attributes).forEach(([key, value]) => {
             if(key === "textContent") {
-                newElement.textContent = attributes[key]
+                newElement.textContent = value
             }
             else if(key === "innerHTML") {
-                newElement.innerHTML = attributes[key]
+                newElement.innerHTML = value
             }
             else {
-                newElement.setAttribute(key, attributes[key]);
+                newElement.setAttribute(key, value);
             }
-        }
+        })
         return newElement
     }
 

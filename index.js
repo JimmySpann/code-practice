@@ -266,19 +266,17 @@ function formatData(data)
 {
     const formattedData = {}
     function RecursiveAdd2Obj(array, formattedObject) {
-        for(let item of array)
-        {
+        array.map( item => {
             if(item.subordinates) RecursiveAdd2Obj(item.subordinates, formattedObject)
              formattedObject[item.id] = { ...item, subordinates: [] }; //Replaces subordinates ref with fresh array
             // Following code used to change children from objects to ids
             if(item.subordinates)
             {
-                for(let i = 0; i < item.subordinates.length; i++)
-                {
-                    formattedObject[item.id].subordinates.push(item.subordinates[i].id)
-                }
+                item.subordinates.map( subordinate => {
+                    formattedObject[item.id].subordinates.push(subordinate.id)
+                })
             }
-        }
+        })
     }
     RecursiveAdd2Obj(data, formattedData)
     return formattedData;
@@ -312,17 +310,21 @@ function formatToHTML(data)
     let dataAsStr = JSON.stringify(data);
     let newStr = "";
     let tabCount = 0;
-    for(let i = 0; i < dataAsStr.length; i++)
+    for(let i = 0; i < dataAsStr.length; i++) // for loop needed to loop through string
     {
         newStr += dataAsStr[i]
+
         if(dataAsStr[i] === "{" || dataAsStr[i] === "[") tabCount++;
         if(dataAsStr[i] === "}" || dataAsStr[i] === "]") tabCount--;
+
         if(dataAsStr[i] === "," && dataAsStr[i-1] === "}") {
             newStr += "<br>"
         }
+
         if(checkFor(dataAsStr[i], [ "{", ",", "[" ])) {
             newStr += "<br>" + addTabs(tabCount);
         }
+
         if(checkFor(dataAsStr[i+1], [ "}" , "]" ])) {
             newStr += "<br>" + addTabs(tabCount - 1);
         }
