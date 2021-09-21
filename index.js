@@ -282,56 +282,6 @@ function formatData(data)
     return formattedData;
 }
 
-/**
- * Used to convert an object or array into a viewable HTML form
- *
- * @param {Object}   data Must an object containing nested objects.
- *
- * @return {String} Returns a string fit for innerHTML
- */
-function formatToHTML(data)
-{
-    function addTabs(amount)
-    {
-        let str = ""
-        for(let i = 0; i < amount; i++)
-        {
-            str += "&emsp; "
-        }
-        return str
-    }
-    function checkFor(strChck, conditionsArr) {
-        for(let condition of conditionsArr)
-        {
-            if(strChck === condition) return true
-        }
-        return false
-    }
-    let dataAsStr = JSON.stringify(data);
-    let newStr = "";
-    let tabCount = 0;
-    for(let i = 0; i < dataAsStr.length; i++) // for loop needed to loop through string
-    {
-        newStr += dataAsStr[i]
-
-        if(dataAsStr[i] === "{" || dataAsStr[i] === "[") tabCount++;
-        if(dataAsStr[i] === "}" || dataAsStr[i] === "]") tabCount--;
-
-        if(dataAsStr[i] === "," && dataAsStr[i-1] === "}") {
-            newStr += "<br>"
-        }
-
-        if(checkFor(dataAsStr[i], [ "{", ",", "[" ])) {
-            newStr += "<br>" + addTabs(tabCount);
-        }
-
-        if(checkFor(dataAsStr[i+1], [ "}" , "]" ])) {
-            newStr += "<br>" + addTabs(tabCount - 1);
-        }
-    }
-    return newStr;
-}
-
 const newData = formatData(data);
 
 document.getElementById("starting-data").textContent = JSON.stringify(data, undefined, 4);
