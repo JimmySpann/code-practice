@@ -9,12 +9,12 @@ const data = [
         "email": "Letizia.Alva@gmail.com",
         "subordinates": [
             {
-            "id": 9479659711,
-            "firstname": "Jaclyn",
-            "lastname": "Thar",
-            "city": "Iloilo City",
-            "email": "Jaclyn.Thar@gmail.com",
-            "subordinates": []
+                "id": 9479659711,
+                "firstname": "Jaclyn",
+                "lastname": "Thar",
+                "city": "Iloilo City",
+                "email": "Jaclyn.Thar@gmail.com",
+                "subordinates": []
             },
             {
                 "id": 7124552279,
@@ -334,18 +334,8 @@ function formatToHTML(data)
 
 const newData = formatData(data);
 
-
-const [dataDivElm, newDataDivElm] = HTML.createSimilarElements(
-    "div", 2,
-    { class: "rawDataDiv" },
-    {
-        0: { innerHTML: "<h2>Starting Data</h2>" + formatToHTML(data) },
-        1: { innerHTML: "<h2>Converted Data</h2>" + formatToHTML(newData) }
-    }
-)
-
-document.body.appendChild(dataDivElm);
-document.body.appendChild(newDataDivElm);
+document.getElementById("starting-data").textContent = JSON.stringify(data, undefined, 4);
+document.getElementById("converted-data").textContent = JSON.stringify(newData, undefined, 4);
 
 console.log("Starting Data", data);
 console.log("Converted Data", newData);
